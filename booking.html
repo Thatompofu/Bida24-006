@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Book Appointment - The Skin Lab</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <nav class="navbar">
+    <ul>
+      <li><a href="index.html">Home</a></li>
+      <li><a href="services.html">Services</a></li>
+      <li><a href="booking.html" class="active">Book Now</a></li>
+    </ul>
+  </nav>
+  <section class="booking-section">
+    <h2>Book an Appointment</h2>
+    <form id="bookingForm">
+      <label for="category">Select Service Category:</label>
+      <select id="category" required>
+        <option value="">-- Choose Category --</option>
+        <option value="skin">Skin Treatments</option>
+        <option value="massage">Massage Services</option>
+        <option value="hair">Hair Services</option>
+        <option value="nail">Nail Services</option>
+        <option value="makeup">Makeup Services</option>
+        <option value="special">Special Packages</option>
+      </select>
+      <label for="service">Select Specific Service:</label>
+      <select id="service" required>
+        <option value="">-- Select a service --</option>
+      </select>
+      <label for="date">Choose a Date:</label>
+      <input type="date" id="date" required>
+      <label for="time">Choose Time:</label>
+      <input type="time" id="time" required>
+      <button type="submit">Book Appointment</button>
+    </form>
+    <div id="confirmation" style="margin-top: 20px; display: none;">
+      <p>Your appointment has been booked!</p>
+    </div>
+  </section>
+  <script>
+    const serviceDropdown = document.getElementById("service");
+    const categoryDropdown = document.getElementById("category");
+    const services = {
+      skin: ["Hydrating Mask-P200", "Facial-P250", "Anti-aging Treatment-P300", "acne Treatment-P300"],
+      massage: ["Swedish Massage-P300", "Hot Stone-P270", "Aromatherapy-400", "Deep Tissue-P350"],
+      hair: ["Haircut-P50", "Styling-P100", "Coloring-P100", "Treatment-P200"],
+      nail: ["Manicure-P300", "Pedicure-P300","Gel polish-P200", "Nail Art-P150"],
+      makeup: ["Bridal Makeup-P400", "special Occasion", "day Makeup-P300", "Evening Makeup-P300"],
+      special: ["Bridal Package", "Couple Package", "full day retreat"],
+    };
+    categoryDropdown.addEventListener("change", function () {
+      const selected = this.value;
+      serviceDropdown.innerHTML = '<option value="">-- Select a service --</option>';
+      if (services[selected]) {
+        services[selected].forEach(service => {
+          const option = document.createElement("option");
+          option.value = service;
+          option.textContent = service;
+          serviceDropdown.appendChild(option);
+        });
+      }
+    });
+    document.getElementById("bookingForm").addEventListener("submit", function (e) {
+      e.preventDefault();
+      document.getElementById("confirmation").style.display = "block";
+    });
+  </script>
+</body>
+</html>
