@@ -17,7 +17,7 @@ body{
     border-bottom: 1px solid #e0dcdc;
 }
 .navbar .logo{
-    display: flex;
+    display:flex;
     align-items: center;
     gap:10px;
 }
