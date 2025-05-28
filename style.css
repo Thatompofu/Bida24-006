@@ -10,11 +10,12 @@ body{
     padding:20px;
     }
 .navbar{
-    display: fixed;
+    display: flex;
     justify-content: space-between;
     align-items: center;
     padding-bottom:20px;
     border-bottom: 1px solid #e0dcdc;
+    position: fixed;
 }
 .navbar .logo{
     display:flex;
