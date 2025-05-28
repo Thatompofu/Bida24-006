@@ -15,7 +15,6 @@ body{
     align-items: center;
     padding-bottom:20px;
     border-bottom: 1px solid #e0dcdc;
-    position: fixed;
 }
 .navbar .logo{
     display:flex;
